@@ -44,8 +44,7 @@ from helpers import (
     validate_calories,
 )
 
-# ==================== PAGE CONFIGURATION ====================
-
+# Page Configuration
 st.set_page_config(
     page_title="Cat Calorie Tracker",
     page_icon="🐱",
@@ -53,8 +52,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ==================== CUSTOM CSS ====================
-
+# Custom CSS
 st.markdown("""
     <style>
     .main-header {
@@ -72,8 +70,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ==================== SESSION STATE INITIALIZATION ====================
-
+# Initialization
 if 'cats' not in st.session_state:
     st.session_state.cats = []
 
@@ -83,12 +80,10 @@ if 'feeding_schedule' not in st.session_state:
 if 'food_database' not in st.session_state:
     st.session_state.food_database = load_default_food_database()
 
-# ==================== HEADER ====================
-
+# Header
 st.markdown('<h1 class="main-header">🐱 Cat Calorie Tracker</h1>', unsafe_allow_html=True)
 
-# ==================== SIDEBAR NAVIGATION ====================
-
+# Sidebar Navigation
 st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 page = st.sidebar.radio(
@@ -100,8 +95,7 @@ page = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 **Tip:** Start by creating a cat profile, then add foods to the database, and finally create a feeding schedule!")
 
-# ==================== PAGE: CAT PROFILE ====================
-
+# Cat Profile
 if page == "🐈 Cat Profile":
     st.header("🐈 Cat Profile Management")
     st.markdown("Create and manage profiles for your cats with automatic calorie calculations.")
@@ -256,8 +250,7 @@ if page == "🐈 Cat Profile":
     else:
         st.info("👆 No cat profiles yet. Create one above to get started!")
 
-# ==================== PAGE: FOOD DATABASE ====================
-
+# Food Database
 elif page == "🍽️ Food Database":
     st.header("🍽️ Food Database")
     st.markdown("Manage your cat food database and search for nutritional information.")
@@ -354,8 +347,7 @@ elif page == "🍽️ Food Database":
             else:
                 st.warning("⚠️ Please enter a search term.")
 
-# ==================== PAGE: FEEDING SCHEDULE ====================
-
+# Feeding Schedule
 elif page == "⏰ Feeding Schedule":
     st.header("⏰ Feeding Schedule")
     st.markdown("Create customized feeding schedules with calculated serving sizes.")
@@ -484,8 +476,7 @@ elif page == "⏰ Feeding Schedule":
             else:
                 st.info("👆 No meals scheduled yet for this cat. Add meals above!")
 
-# ==================== PAGE: DASHBOARD ====================
-
+# Dashboard
 elif page == "📊 Dashboard":
     st.header("📊 Dashboard")
     st.markdown("Visual analytics and insights for your cat's feeding schedule.")
@@ -617,8 +608,7 @@ elif page == "📊 Dashboard":
         else:
             st.info("ℹ️ No feeding schedule set up yet. Go to the Feeding Schedule page to add meals!")
 
-# ==================== FOOTER ====================
-
+# Footer
 st.markdown("---")
 st.markdown("""
     <div style='text-align: center; color: #666;'>

@@ -7,9 +7,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 
-
-# ==================== CALORIE CALCULATIONS ====================
-
+# Calorie Calculations
 def calculate_resting_energy_requirement(weight_kg):
     """
     Calculate RER (Resting Energy Requirement) using the formula:
@@ -176,8 +174,7 @@ def format_age_display(years, months):
         return f"{years} year{'s' if years != 1 else ''}, {months} month{'s' if months != 1 else ''}"
 
 
-# ==================== FOOD DATABASE MANAGEMENT ====================
-
+# Food Database Management
 def load_default_food_database():
     """
     Load default food database with popular commercial cat food brands.
@@ -307,8 +304,7 @@ def get_food_by_brand(food_database, food_type, brand_name):
     return None
 
 
-# ==================== API INTEGRATION ====================
-
+# API Integration
 def fetch_pet_food_data(product_name):
     """
     Fetch pet food nutritional data from Open Pet Food Facts API.
@@ -358,8 +354,7 @@ def fetch_pet_food_data(product_name):
         return None
 
 
-# ==================== CAT PROFILE MANAGEMENT ====================
-
+# Cat Profile Management
 def create_cat_profile(name, breed, weight_kg, age_years, age_months, life_stage, 
                       activity_level, body_condition, is_neutered):
     """
@@ -436,8 +431,7 @@ def update_cat_profile(cat_profile, **kwargs):
     return cat_profile
 
 
-# ==================== FEEDING SCHEDULE MANAGEMENT ====================
-
+# Feeding Schedule Management
 def create_meal(cat_name, meal_time, food_type, brand, food_calories_per_100g, 
                percentage_of_daily, daily_target_calories):
     """
@@ -534,8 +528,7 @@ def sort_meals_by_time(meals):
     return sorted(meals, key=lambda x: x['time'])
 
 
-# ==================== DATA FORMATTING & VALIDATION ====================
-
+# Data Formatting and Validation
 def format_time_12hr(time_24hr):
     """
     Convert 24-hour time to 12-hour format with AM/PM.
@@ -588,8 +581,7 @@ def validate_calories(calories_per_100g, food_type):
     return True, "Calories are valid"
 
 
-# ==================== ANALYTICS & STATISTICS ====================
-
+# Analytics and Statistics
 def get_food_type_breakdown(feeding_schedule, cat_name):
     """
     Calculate breakdown of calories by food type.
@@ -626,8 +618,7 @@ def calculate_percentage_of_target(actual, target):
     return (actual / target) * 100
 
 
-# ==================== EXPORT/IMPORT HELPERS ====================
-
+# Export/Import Helpers
 def export_cat_profile_to_dict(cat_profile):
     """
     Export cat profile to dictionary format for JSON serialization.
